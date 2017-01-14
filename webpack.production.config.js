@@ -30,7 +30,7 @@ module.exports = {
 		'./src/index.jsx'
 	],
 	output: {
-		publicPath: '/',
+		publicPath: './',
 		path: path.join(__dirname, 'public'),
 		filename: '[chunkhash].js'
 	},
@@ -60,7 +60,7 @@ module.exports = {
 			allChunks: true
 		}),
 		new HtmlWebpackPlugin({
-			template: './src/template.html',
+			template: './src/index.html',
 			title: 'Webpack App'
 		}),
 		new webpack.optimize.DedupePlugin()
