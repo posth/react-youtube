@@ -10,14 +10,12 @@ export default class App extends React.Component {
     super(props);
 
     //Hardcoded mock roomList to receive
-    let roomList = {
-      TupacRoom: { playList: 'Tupac' },
-      MozartRoom: { playList: 'Mozart' },
-      DotosOSTRoom: { playList: 'Dotos OST' }
-    }
-
     this.state = {
-      roomList: roomList
+      roomList: {
+        TupacRoom: { playList: 'Tupac' },
+        MozartRoom: { playList: 'Mozart' },
+        DotosOSTRoom: { playList: 'Dotos OST' }
+      }
     }
 
   }
