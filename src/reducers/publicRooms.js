@@ -1,6 +1,7 @@
 import GetPublicRooms from '../actions/getRoomsActions'
 
 export function getPublic (state = {}, action) {
+  console.log('get')
   switch (action.type) {
     case 'GET_PUBLIC':
       console.log('get')

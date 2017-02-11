@@ -20,7 +20,8 @@ export const GetPublicRooms = {
  * action creators
  */
 
-export function getPublic(text) {
+export function getPublic() {
+  console.log('getpublic')
   return { type: GET_PUBLIC_REQUESTED }
 }
 

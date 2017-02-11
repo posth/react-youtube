@@ -4,5 +4,3 @@ import { getPublic } from './publicRooms';
 export const rootReducer = combineReducers(() => {
   getPublic: getPublic
  });
-
-// export default rootReducer;
