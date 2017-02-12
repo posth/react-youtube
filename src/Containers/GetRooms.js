@@ -5,7 +5,6 @@ import RoomListings from '../Components/RoomListings/RoomListings'
 //Hardcoded mock roomList to receive
 
 const mapStateToProps = (state) => {
-  console.log(state, 'statetoprops state')
   return {
     publicRooms: state.getPublic.publicRooms
   }
