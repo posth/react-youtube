@@ -1,8 +1,5 @@
 import { combineReducers } from 'redux';
 import { getPublic } from './publicRooms';
 
-export const rootReducer = combineReducers(() => {
-  getPublic: getPublic
- });
-
-// export default rootReducer;
+// takes a series of reducers and combines them, passing them to the store
+export default combineReducers({getPublic});

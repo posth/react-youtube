@@ -1,17 +1,16 @@
 import GetPublicRooms from '../actions/getRoomsActions'
+import {initialState} from './mockstate'
 
-export function getPublic (state = {}, action) {
+
+export function getPublic (state = initialState, action) {
   switch (action.type) {
-    case 'GET_PUBLIC':
-      console.log('get')
+    case 'GET_PUBLIC_REQUESTED':
       return state
 
     case 'GET_PUBLIC_SUCCESS':
-    console.log('good')
       return state
 
     case 'GET_PUBLIC_FAIL':
-    console.log('bad')
       return state
 
     default:
