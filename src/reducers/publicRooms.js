@@ -1,10 +1,18 @@
 import GetPublicRooms from '../actions/getRoomsActions'
 
-export function getPublic (state = {}, action) {
-  console.log('get')
+const initialState = {
+  publicRooms: {
+      TupacRoom: { playList: 'Tupac' },
+      MozartRoom: { playList: 'Mozart' },
+      DotosOSTRoom: { playList: 'Dotos OST' }
+  }
+}
+
+export function getPublic (state = initialState, action) {
+  console.log('getPublic', action)
   switch (action.type) {
-    case 'GET_PUBLIC':
-      console.log('get')
+    case 'GET_PUBLIC_REQUESTED':
+      console.log(state,'GET_PUBLIC_REQUESTED')
       return state
 
     case 'GET_PUBLIC_SUCCESS':

@@ -6,8 +6,6 @@ import { store } from './store/store'
 import { getPublic } from './reducers/publicRooms'
 import App from './app.jsx';
 
-console.log(store.getState(), 'where my reducers at?')
-console.log(store, 'where my reducers at?')
 //root render to dom, pass provider with binds the redux store to the app
 render(
   <Provider store={store}>

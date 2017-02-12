@@ -9,27 +9,14 @@ import GetRooms from './Containers/GetRooms';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-
-    //Hardcoded mock roomList to receive
-    this.state = {
-      roomList: {
-        TupacRoom: { playList: 'Tupac' },
-        MozartRoom: { playList: 'Mozart' },
-        DotosOSTRoom: { playList: 'Dotos OST' }
-      }
-    }
-
-
   }
-  componentWillMount() {
-    console.log('djfkls', 'hi')
-  }
+
 
   render() {
     return (
       <div>
         <Header />
-        <GetRooms playList={this.state.roomList} />
+        <GetRooms />
         <Footer />
       </div>
     )

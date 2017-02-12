@@ -2,12 +2,14 @@ import { connect } from 'react-redux'
 import { getPublic } from '../actions/getRoomsActions'
 import RoomListings from '../Components/RoomListings/RoomListings'
 
+//Hardcoded mock roomList to receive
 
-// const mapStateToProps = (state) => {
-//   return {
-//     todos: getVisibleTodos(state)
-//   }
-// }
+const mapStateToProps = (state) => {
+  console.log(state, 'statetoprops state')
+  return {
+    publicRooms: state.getPublic.publicRooms
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -18,7 +20,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const GetRooms = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(RoomListings)
 
