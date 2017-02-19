@@ -1,12 +1,12 @@
 import React from 'react';
 
 export const RoomListDescription = (props) => {
-  const songsnumber = props.room.songs.length
+
 
   return (
     <div>
-      <h3>{props.room.playListName} - {songsnumber}</h3>
-      <p>{props.room.description}</p>
+      <h3>{props.room.name}</h3>
+      <p>{props.room.desc}</p>
     </div>
   )
 }

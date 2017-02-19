@@ -12,20 +12,16 @@ export class RoomListings extends React.Component {
       this.props.getPublic();
     }
 
-		renderList = () => {
-			console.log(this.props)
-			this.props.publicRooms.map(function (room, i) {
-				return (<RoomListDescription key={i} room={room} />);
-			})
-		}
-
     render() {
         //Stocking the props variable received from the parent into the child to pass to it's children
         // const publicRooms = this.props;
         //Iterating through the playlist Object to list out each room
+				console.log(this.props)
         return (
             <div className="room-listings-container pa2 fl w-50 tc">
-                {this.props.publicRooms ? renderlist : null}
+                {this.props.publicRooms.map(function (room, i) {
+									return (<RoomListDescription key={i} room={room} />);
+								})}
             </div>
         )
     }
@@ -39,7 +35,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-	console.log(dispatch, 'hi')
   return {
     getPublic: () => {
       dispatch(getPublic())

@@ -1,8 +1,7 @@
-export const initialState = {
-  publicRooms: [
+export const initialState =  [
       {
-        playListName: 'Tupac4life',
-        description: 'fucking rap and stuff',
+        name: 'Tupac4life',
+        desc: 'fucking rap and stuff',
         currentSong: 4,
         songs: [
           'string',
@@ -25,8 +24,8 @@ export const initialState = {
         ]
      },
      {
-       playListName: 'Doto2OST',
-       description: 'Tilt off the earth',
+       name: 'Doto2OST',
+       desc: 'Tilt off the earth',
        currentSong: 4,
        songs: [
          'string',
@@ -49,8 +48,8 @@ export const initialState = {
        ]
     },
     {
-      playListName: 'Rock and rool son',
-      description: 'fucking rock and stuff',
+      name: 'Rock and rool son',
+      desc: 'fucking rock and stuff',
       currentSong: 4,
       songs: [
         'string',
@@ -73,4 +72,4 @@ export const initialState = {
       ]
    }
   ]
-}
+
