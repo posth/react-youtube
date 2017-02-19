@@ -5,6 +5,7 @@ import Header from './Components/Header/header';
 import Footer from './Components/Footer/footer';
 import RoomListings from './Containers/Home/PublicRoomsList/RoomListings';
 import CreateRoom from './Containers/Home/CreateRoom/CreateRoom';
+import Routing from './routing';
 
 export default class App extends React.Component {
 
@@ -12,16 +13,10 @@ export default class App extends React.Component {
     return (
       <div>
         <Header />
-
-				{/*Routing will goes here instead of Components*/}
-				<div className="pa3">
-					<RoomListings />
-				  <CreateRoom />
-				</div>
-				{/*Routing will goes here instead of Components*/}
-
+          <Routing />
         <Footer />
       </div>
     )
   }
 }
+
