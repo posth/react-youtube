@@ -1,16 +1,18 @@
 import { Home }  from './Containers/Home/Home';
+import { Room }  from './Containers/Room/Room';
 
 import React from 'react'
 import {
     BrowserRouter as Router,
     Route,
-    Link
+
 } from 'react-router-dom'
 
 const Routing = () => (
     <Router>
         <div>
             <Route exact path="/" component={Home} />
+						<Route path="/:roomid" component={Room} />
         </div>
     </Router>
 )
