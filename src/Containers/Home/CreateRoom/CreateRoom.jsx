@@ -16,7 +16,7 @@ export class CreateRoom extends React.Component {
 				'desc': event.target.description.value
 			}
 			console.log('hi', data);
-			this.props.createRoom(data.name);
+			this.props.createRoom(data);
 		}
 
     render() {
