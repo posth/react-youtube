@@ -1,4 +1,5 @@
 import database from '../../../reducers/database'
+import getPublic from '../PublicRoomsList/actions'
 
 /*
  * action types
@@ -37,6 +38,7 @@ export function createRoom(payload) {
 			}).then(function(snapshot) {
       console.log(snapshot.val())
 			dispatch(createRoomSuccess(snapshot.val()));
+			dispatch(getPublic());
       // var username = snapshot.val().username;
       // ...
     }).catch(err => dispatch(createRoomfail(err)));
