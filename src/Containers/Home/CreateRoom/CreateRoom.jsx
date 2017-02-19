@@ -16,6 +16,9 @@ export class CreateRoom extends React.Component {
 				'desc': event.target.description.value
 			}
 
+			event.target.reset();
+			event.target.name.focus();
+
 			this.props.createRoom(data);
 		}
 
