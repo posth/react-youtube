@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { store } from './store/store'
-import { getPublic } from './reducers/publicRooms'
 import App from './app.jsx';
 
 //root render to dom, pass provider with binds the redux store to the app

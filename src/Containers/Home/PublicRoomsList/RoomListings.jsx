@@ -1,7 +1,9 @@
 import React from 'react';
-import {RoomListDescription} from './RoomListDescription/RoomListDescription';
+import { connect } from 'react-redux';
+import { getPublic } from './actions';
+import {RoomListDescription} from '../../../Components/RoomListDescription/RoomListDescription';
 
-export default class RoomListings extends React.Component {
+export class RoomListings extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -15,7 +17,7 @@ export default class RoomListings extends React.Component {
         // const publicRooms = this.props;
         //Iterating through the playlist Object to list out each room
         return (
-            <div className="room-listings-container pa2 fl w-100">
+            <div className="room-listings-container pa2 fl w-50 tc">
                 {this.props.publicRooms.map(function (room, i) {
                     return (
                         <RoomListDescription key={i} room={room} />
@@ -25,3 +27,22 @@ export default class RoomListings extends React.Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    publicRooms: state.getPublic.publicRooms
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPublic: () => {
+      dispatch(getPublic())
+    }
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RoomListings)

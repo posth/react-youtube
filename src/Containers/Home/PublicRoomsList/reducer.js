@@ -1,5 +1,5 @@
-import GetPublicRooms from '../actions/getRoomsActions'
-import {initialState} from './mockstate'
+// import GetPublicRooms from './actions'
+import {initialState} from '../../../reducers/mockstate'
 
 
 export function getPublic (state = initialState, action) {

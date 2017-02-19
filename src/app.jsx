@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './index.scss';
+// import styles from './index.scss';
 
 import Header from './Components/Header/header';
 import Footer from './Components/Footer/footer';
-import RoomListings from './Components/RoomListings/RoomListings';
-import GetRooms from './Containers/GetRooms';
+import RoomListings from './Containers/Home/PublicRoomsList/RoomListings';
+import CreateRoom from './Containers/Home/CreateRoom/CreateRoom';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,7 +16,13 @@ export default class App extends React.Component {
     return (
       <div>
         <Header />
-        <GetRooms />
+				{/*Routing will goes here instead of Components*/}
+				<div className="pa3">
+					<RoomListings />
+				  <CreateRoom />
+				</div>
+
+				{/*Routing will goes here instead of Components*/}
         <Footer />
       </div>
     )
