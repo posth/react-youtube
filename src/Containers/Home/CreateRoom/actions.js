@@ -31,7 +31,10 @@ export function createRoom(payload) {
 	console.log(payload)
   return function(dispatch) {
     dispatch(createRoomRequested());
-    return database.ref('/public/' + payload.name).set(payload.desc).then(function(snapshot) {
+    return database.ref('/public/' + payload.name).set({
+			name: payload.name,
+			desc: payload.desc
+			}).then(function(snapshot) {
       console.log(snapshot.val())
 			dispatch(createRoomSuccess(snapshot.val()));
       // var username = snapshot.val().username;

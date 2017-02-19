@@ -15,7 +15,7 @@ export class CreateRoom extends React.Component {
 				'name': event.target.name.value,
 				'desc': event.target.description.value
 			}
-			console.log('hi', data);
+
 			this.props.createRoom(data);
 		}
 
@@ -39,7 +39,7 @@ export class CreateRoom extends React.Component {
     }
 }
 
-// const mapStateToProps = (state) => {
+// const null = (state) => {
 //   return {
 //     createRoom: state.getPublic.createRoom
 //   }
