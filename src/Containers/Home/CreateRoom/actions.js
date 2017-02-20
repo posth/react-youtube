@@ -29,18 +29,21 @@ export function createRoomfail(error) {
 }
 
 export function createRoom(payload) {
-	console.log(payload)
   return function(dispatch) {
     dispatch(createRoomRequested());
-    return database.ref('/public/' + payload.name).set({
+		const key = database().ref('/public/').push().key
+		console.log(key)
+    return database.ref('/public/' + payload.name).push({
 			name: payload.name,
 			desc: payload.desc
 			}).then(function(snapshot) {
-      console.log(snapshot.val())
 			dispatch(createRoomSuccess(snapshot.val()));
 			dispatch(getPublic());
       // var username = snapshot.val().username;
       // ...
-    }).catch(err => dispatch(createRoomfail(err)));
+    }).catch((err) => {
+			console.log(err)
+			dispatch(createRoomfail(err));
+		})
 	}
 }

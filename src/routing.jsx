@@ -10,7 +10,7 @@ import {
 
 const Routing = () => (
     <Router>
-        <div>
+        <div className="bg-image">
             <Route exact path="/" component={Home} />
 						<Route path="/:roomid" component={Room} />
         </div>

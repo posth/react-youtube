@@ -24,8 +24,8 @@ export class CreateRoom extends React.Component {
 
     render() {
         return (
-            <div className="room-listings-container pa2 fl w-50">
-							<form className="black-80" onSubmit={this.handleSubmit}>
+            <div className="room-listings-container pa2 fl w-100 flex justify-center">
+							<form className="near-white" onSubmit={this.handleSubmit}>
 								<h2>To Create a Room Type Here!</h2>
 								<div className="measure">
 									<label htmlFor="name" className="f6 b db mb2 pa1">Name</label>

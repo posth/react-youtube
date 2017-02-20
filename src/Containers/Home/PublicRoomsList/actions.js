@@ -29,12 +29,8 @@ export function getPublicfail(error) {
 export function getPublic() {
   return function(dispatch) {
     dispatch(getPublicRequested());
-    console.log('hihihi')
-    return database.ref('/public').once('value').then(function(snapshot) {
-      console.log(snapshot.val())
+    return database.ref('/public').on('value', function(snapshot) {
 			dispatch(getPublicSuccess(snapshot.val()));
-      // var username = snapshot.val().username;
-      // ...
-    }).catch(err => dispatch(getPublicfail(err)));
+		})
 	}
 }

@@ -16,9 +16,8 @@ export class RoomListings extends React.Component {
         //Stocking the props variable received from the parent into the child to pass to it's children
         // const publicRooms = this.props;
         //Iterating through the playlist Object to list out each room
-				console.log(this.props)
         return (
-            <div className="room-listings-container pa2 fl w-50 tc">
+            <div className="room-listings-container pa2 fl w-100 tc">
                 {this.props.publicRooms.map(function (room, i) {
 									return (<RoomListDescription key={i} room={room} />);
 								})}
@@ -28,7 +27,6 @@ export class RoomListings extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-	console.log(state, 'container state')
   return {
     publicRooms: state.publicRooms
   }
