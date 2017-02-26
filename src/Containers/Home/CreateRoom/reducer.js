@@ -1,5 +1,5 @@
 // import GetPublicRooms from './actions'
-import {initialState} from '../../../reducers/mockstate'
+// import {initialState} from '../../../reducers/mockstate'
 import {ATYPES} from './actions'
 
 

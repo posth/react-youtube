@@ -31,13 +31,14 @@ export function createRoomfail(error) {
 export function createRoom(payload) {
   return function(dispatch) {
     dispatch(createRoomRequested());
-		// const key = database.ref('/public/').push().key;
-		// console.log(key);
-    return database.ref('/public/').push({
+		const key = database.ref('/public/').push().key;
+		//  genrerated key from firebase to use as our ref instead of using the name
+    return database.ref('/public/' + key).set({
 			name: payload.name,
 			desc: payload.desc,
+			id: key
 			}).then(function(snapshot) {
-			dispatch(createRoomSuccess(snapshot.val));
+			dispatch(createRoomSuccess(snapshot.val()));
 			dispatch(getPublic());
    	  }).catch((err) => {
 			console.log(err)

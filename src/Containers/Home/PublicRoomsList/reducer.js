@@ -1,7 +1,5 @@
 // import GetPublicRooms from './actions'
-import {initialState} from '../../../reducers/mockstate'
-
-  // const initialState = ;
+// import {initialState} from '../../../reducers/mockstate'
 
 
 export function getPublicReducer (state = [], action) {

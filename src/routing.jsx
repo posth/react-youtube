@@ -12,7 +12,7 @@ const Routing = () => (
     <Router>
         <div className="bg-image">
             <Route exact path="/" component={Home} />
-			<Route path="/:roomid" component={Room} />
+						<Route path="/:roomid" component={Room} />
         </div>
     </Router>
 )
