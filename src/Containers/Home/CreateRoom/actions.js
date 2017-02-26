@@ -1,5 +1,5 @@
 import database from '../../../reducers/database'
-import getPublic from '../PublicRoomsList/actions'
+import { getPublic } from '../PublicRoomsList/actions'
 
 /*
  * action types
@@ -31,17 +31,15 @@ export function createRoomfail(error) {
 export function createRoom(payload) {
   return function(dispatch) {
     dispatch(createRoomRequested());
-		const key = database().ref('/public/').push().key
-		console.log(key)
-    return database.ref('/public/' + payload.name).push({
+		// const key = database.ref('/public/').push().key;
+		// console.log(key);
+    return database.ref('/public/').push({
 			name: payload.name,
-			desc: payload.desc
+			desc: payload.desc,
 			}).then(function(snapshot) {
-			dispatch(createRoomSuccess(snapshot.val()));
+			dispatch(createRoomSuccess(snapshot.val));
 			dispatch(getPublic());
-      // var username = snapshot.val().username;
-      // ...
-    }).catch((err) => {
+   	  }).catch((err) => {
 			console.log(err)
 			dispatch(createRoomfail(err));
 		})

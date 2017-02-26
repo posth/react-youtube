@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getPublic } from './actions';
-import {RoomListDescription} from '../../../Components/RoomListDescription/RoomListDescription';
+import { RoomListDescription } from '../../../Components/RoomListDescription/RoomListDescription';
 
 export class RoomListings extends React.Component {
     constructor(props) {
