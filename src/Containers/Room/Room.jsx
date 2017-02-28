@@ -3,7 +3,7 @@ import React from 'react';
 //Child Containers note: when using connect need to be called without brackets so it imports default
 import { SongPlayer } from './SongPlayer/SongPlayer';
 import Playlist from './Playlist/Playlist';
-import { PlaylistForm } from './PlaylistForm/PlaylistForm';
+import PlaylistForm from './PlaylistForm/PlaylistForm';
 
 // not sure whether to do get here or playlist
 export const Room = ({ match }) => {
