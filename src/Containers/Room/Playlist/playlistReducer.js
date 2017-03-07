@@ -9,7 +9,7 @@ export function getActiveReducer (state = {}, action) {
       return state
 
     case ATYPES.ACTIVE_ROOM_SUCCESS:
-		console.log(state)
+		console.log(state, 'form state')
       return state = action.payload
 
     case ATYPES.ACTIVE_ROOM_FAIL:

@@ -36,8 +36,7 @@ export function createRoom(payload) {
     return database.ref('/public/' + key).set({
 				name: payload.name,
 				desc: payload.desc,
-				id: key,
-				songs: ['nocurrentsongs']
+				id: key
 			}).then(function(snapshot) {
 				dispatch(createRoomSuccess(snapshot.val()));
 				dispatch(getPublic());
