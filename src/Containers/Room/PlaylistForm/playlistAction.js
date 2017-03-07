@@ -27,5 +27,18 @@ export function addSongFail(error) {
 }
 
 export function addSong(songInfo) {
+		addSongRequested();
     console.log(songInfo);
+		return function(dispatch) {
+			//  genrerated key from firebase to use as our ref instead of using the name
+			return database.ref('/public/' + songInfo.id).push({
+					songs : [songInfo.link]
+				}).then(function(snapshot) {
+					dispatch(addSongSuccess(snapshot.val()));
+					// dispatch(getPublic()); should be a get songs function from the list?
+				}).catch((err) => {
+					console.log(err)
+					dispatch(addSongFail(err));
+			})
+	}
 }

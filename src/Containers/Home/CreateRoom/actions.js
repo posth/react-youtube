@@ -34,15 +34,16 @@ export function createRoom(payload) {
 		const key = database.ref('/public/').push().key;
 		//  genrerated key from firebase to use as our ref instead of using the name
     return database.ref('/public/' + key).set({
-			name: payload.name,
-			desc: payload.desc,
-			id: key
+				name: payload.name,
+				desc: payload.desc,
+				id: key,
+				songs: ['nocurrentsongs']
 			}).then(function(snapshot) {
-			dispatch(createRoomSuccess(snapshot.val()));
-			dispatch(getPublic());
+				dispatch(createRoomSuccess(snapshot.val()));
+				dispatch(getPublic());
    	  }).catch((err) => {
-			console.log(err)
-			dispatch(createRoomfail(err));
+				console.log(err)
+				dispatch(createRoomfail(err));
 		})
 	}
 }

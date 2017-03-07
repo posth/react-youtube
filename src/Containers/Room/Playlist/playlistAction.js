@@ -30,12 +30,8 @@ export function activeRoomfail(error) {
 export function getActiveRoom(id) {
 console.log('jdkflajskdljfklads', id)
   return function(dispatch) {
-		console.log('why you no work?', dispatch)
     dispatch(activeRoomRequested());
 
-		// const key = database.ref('/public/').push().key;
-		// console.log(key);
-		//get active room base on id
 		return database.ref('/public/' + id).on("value", function(snapshot) {
   		console.log(snapshot.val());
 			dispatch(activeRoomSuccess(snapshot.val()));

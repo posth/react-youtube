@@ -15,7 +15,8 @@ export class PlaylistForm extends React.Component {
         //TODO youtube regex validator before adding it to the songInfo object
 
         const songInfo = {
-            'link': event.target.song.value
+            'link': event.target.song.value,
+						'id': this.props.roomName
         }
 
         event.target.reset();
