@@ -5,7 +5,7 @@ export function addSong(state = [], action) {
         case ADDSONG_TYPES.ADD_SONG_REQUESTED:
             return state
         case ADDSONG_TYPES.ADD_SONG_SUCCESS:
-            return state
+            return state.activeRoom.songs = action.payload
         case ADDSONG_TYPES.ADD_SONG_FAIL:
             return state
         default:

@@ -27,20 +27,22 @@ export function addSongFail(error) {
 }
 
 // for details see: https://github.com/posth/react-youtube/issues/7
+// Should refresh the songs array from server
+// take array of songs and add songs to it (in reducer)
 
 export function addSong(songInfo) {
+		const queryPoint = database.ref('/public/' + songInfo.id).child('songs');
 		addSongRequested();
-    console.log(songInfo, 'songinfo');
 		return function(dispatch) {
-				//  genrerated key from firebase to use as our ref instead of using the name
-				return database.ref('/public/' + songInfo.id + '/songs/' ).push({
+			// this first point could be a utility funciton?
+			return queryPoint.once("value").then(function(s) {
+				let latestSongs = s.val() ? s.val() : [];
+				latestSongs.push({
 					url: songInfo.link
-				}).then(function(snapshot) {
-						dispatch(addSongSuccess(snapshot.val()));
-						// dispatch(getPublic()); should be a get songs function from the list?
-				}).catch((err) => {
-					console.log(err)
-					dispatch(addSongFail(err));
-				})
-		}
+				});
+				return queryPoint.set(latestSongs).then(function() {
+					dispatch(addSongSuccess(latestSongs));
+				});
+		});
+	 }
 }
