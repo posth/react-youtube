@@ -9,11 +9,21 @@ export class Playlist extends React.Component{
 		this.props.getActiveRoom(this.props.roomName);
 	}
 
+	// function that maps over the current songs in room and reterns list elements
+	songsListMap = () => {
+		 let mappedSongs = this.props.activeRoom.songs.map((song, key) => <li className="white" key={key}> {song.url} </li>)
+		 return mappedSongs;
+	}
+
     render() {
+			console.log(this.props.activeRoom, 'activeRoom');
         return (
             <div>
                 <h1>{this.props.activeRoom.name}</h1>
 								<p className="white" >{this.props.activeRoom.desc}</p>
+								<ul>
+									{this.props.activeRoom.songs ? this.songsListMap() : ''}
+								</ul>
             </div>
         )
     }

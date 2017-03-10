@@ -1,9 +1,9 @@
 import React from 'react';
 
-//Child Containers note: when using connect need to be called without brackets so it imports default
+// Child Containers note: when using connect need to be called without brackets so it imports default
 import { SongPlayer } from './SongPlayer/SongPlayer';
 import Playlist from './Playlist/Playlist';
-import { PlaylistForm } from './PlaylistForm/PlaylistForm';
+import PlaylistForm from './PlaylistForm/PlaylistForm';
 
 // not sure whether to do get here or playlist
 export const Room = ({ match }) => {
@@ -11,7 +11,7 @@ export const Room = ({ match }) => {
 			<div className="pa3 flex ">
 				<div className="w-33 pa2">
 					<Playlist roomName={match.params.roomid} />
-					<PlaylistForm />
+					<PlaylistForm roomName={match.params.roomid} />
 				</div>
 				<div className="w-66 pa2">
 					<SongPlayer />
