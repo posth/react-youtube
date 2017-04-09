@@ -16,7 +16,7 @@ render(
 // module hot reloading magic
 if (module && module.hot) {
   module.hot.accept('./app.jsx', () => {
-    const App = require('./app.jsx').default;
+    // const App = require('./app.jsx').default;
     render(
       <Provider store={store}>
         <App/>
