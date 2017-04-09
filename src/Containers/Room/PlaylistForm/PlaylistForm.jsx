@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { addSong } from './playlistAction';
 
 export class PlaylistForm extends React.Component {
-
     constructor(props) {
         super(props);
     }
@@ -40,7 +39,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addSong: (songInfo) => {
             dispatch(addSong(songInfo))
-        }
+        },
     }
 }
 
