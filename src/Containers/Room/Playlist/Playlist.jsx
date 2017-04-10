@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getActiveRoom } from './playlistAction.js'
+import SongItem from './SongItem';
 
 export class Playlist extends React.Component{
 
@@ -11,8 +12,7 @@ export class Playlist extends React.Component{
 
 	// function that maps over the current songs in room and reterns list elements
 	songsListMap = () => {
-		 let mappedSongs = this.props.activeRoom.songs.map((song, key) => <li className="white" key={key}> {song.url} </li>)
-		 return mappedSongs;
+		 return this.props.activeRoom.songs.map((song, key) => <SongItem key={key} song={song} />);
 	}
 
     render() {
