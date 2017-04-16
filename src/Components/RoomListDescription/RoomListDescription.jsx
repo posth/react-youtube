@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import './RoomListDescription.css';
 
 export const RoomListDescription = (props) => {
 
   return (
-    <Link to={`${props.room.id}` } className="room-list_container fl w-30 link near-black no-underline grow bg-white overflow-hidden avenir pa2">
-      <h3>{props.room.name}</h3>
-      <p>{props.room.desc}</p>
+    <Link to={`${props.room.id}` } className="room-list_container fl w-100 link near-black no-underline dim overflow-hidden avenir pa2 mb2 ba bg-washed-blue">
+      <h3><span className="dark-green">Room name:</span> {props.room.name}</h3>
+      <p><span className="i dark-green">Description:</span> {props.room.desc}</p>
     </Link>
   )
 }

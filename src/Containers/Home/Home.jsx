@@ -7,7 +7,7 @@ export const Home = () => {
     return (
         <div className="pa3">
             <CreateRoom />
-						<RoomListings />
+			<RoomListings />
         </div>
     )
 }

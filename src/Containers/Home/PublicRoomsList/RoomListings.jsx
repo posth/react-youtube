@@ -17,7 +17,7 @@ export class RoomListings extends React.Component {
         // const publicRooms = this.props;
         //Iterating through the playlist Object to list out each room
         return (
-            <div className="room-listings-container pa2 fl w-100 tc">
+            <div className="room-listings-container pa2 fl w-70 w-100-m tl">
                 {this.props.publicRooms.map(function (room, i) {
 									return (<RoomListDescription key={i} room={room} />);
 								})}

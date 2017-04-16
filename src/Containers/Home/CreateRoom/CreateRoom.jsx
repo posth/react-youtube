@@ -24,15 +24,15 @@ export class CreateRoom extends React.Component {
 
     render() {
         return (
-            <div className="room-listings-container pa2 fl w-100 flex justify-center">
+            <div className="room-listings-container pa2 fl w-30 w-100-m flex justify-center">
 							<form className="near-white" onSubmit={this.handleSubmit}>
-								<h2>To Create a Room Type Here!</h2>
+								<h2 className="dark-green" >To Create a Room Type Here!</h2>
 								<div className="measure">
-									<label htmlFor="name" className="f6 b db mb2 pa1">Name</label>
+									<label htmlFor="name" className="f6 b db mb2 pa1 dark-green">Name</label>
 									<input id="name" className="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="name" />
 								</div>
 								<div className="measure">
-									<label htmlFor="description" className="f6 b db mb2 pa1">Description</label>
+									<label htmlFor="description" className="f6 b db mb2 pa1 dark-green">Description</label>
 									<input id="description" className="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" aria-describedby="desc" />
 								</div>
 								<input type="submit" id="submit" className="f6 link dim br2 ba ph3 pv2 mb2 dib dark-blue bg-white"></input>
