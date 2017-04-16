@@ -10,9 +10,9 @@ const SongItem = ({song}) => {
 		};
 
 		return (
-				<li className="white" >
-					<span>{song.url}</span>
-					<button onClick={removeItem}>X</button>
+				<li className="black" >
+					<span className="ma3">Song URL: {song.url}</span>
+					<button onClick={removeItem}>Delete Song</button>
 				</li>
 		);
 };

@@ -4,7 +4,7 @@ export class SongPlayer extends React.Component{
 
     render() {
         return (
-            <div>
+            <div className="fl w-100">
                 <h1>SongPlayer</h1>
             </div>
         )
