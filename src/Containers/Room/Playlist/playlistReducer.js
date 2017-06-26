@@ -1,7 +1,4 @@
-// import GetPublicRooms from './actions'
-// import {initialState} from '../../../reducers/mockstate'
 import {ATYPES} from './playlistAction'
-
 
 export function getActiveReducer (state = {}, action) {
   switch (action.type) {
@@ -9,7 +6,6 @@ export function getActiveReducer (state = {}, action) {
       return state
 
     case ATYPES.ACTIVE_ROOM_SUCCESS:
-		console.log(state, 'form state')
       return state = action.payload
 
     case ATYPES.ACTIVE_ROOM_FAIL:

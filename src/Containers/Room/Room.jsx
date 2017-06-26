@@ -40,7 +40,11 @@ class Room extends Component {
 					<SongPlayer selectedVideo={this.state.selectedVideo} />
 				</div>
 				<div className="fl w-70 w-100-m pa2">
-					<Playlist roomName={this.props.match.params.roomid} />
+					<Playlist
+						videos={this.state.videos}
+						roomName={this.props.match.params.roomid}
+						onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
+					/>
 					<PlaylistForm className="pa2" roomName={this.props.match.params.roomid} />
 				</div>
 			</div>
