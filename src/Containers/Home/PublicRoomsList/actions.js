@@ -1,5 +1,5 @@
 // import firebase from 'firebase';
-import database from '../../../reducers/database'
+import database from '../../../Config/database'
 
 /*
  * action types

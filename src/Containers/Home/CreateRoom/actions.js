@@ -1,4 +1,4 @@
-import database from '../../../reducers/database'
+import database from '../../../Config/database'
 import { getPublic } from '../PublicRoomsList/actions'
 
 /*

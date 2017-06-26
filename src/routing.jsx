@@ -1,5 +1,5 @@
 import { Home }  from './Containers/Home/Home';
-import { Room }  from './Containers/Room/Room';
+import Room  from './Containers/Room/Room';
 
 import React from 'react'
 import {
@@ -11,7 +11,7 @@ const Routing = () => (
     <Router>
         <div className="bg-image">
             <Route exact path="/" component={Home} />
-						<Route path="/:roomid" component={Room} />
+			<Route path="/:roomid" component={Room} />
         </div>
     </Router>
 )
