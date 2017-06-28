@@ -1,38 +1,65 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { addSong } from './playlistAction';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import YTSearch from 'youtube-api-search'
 
-export class PlaylistForm extends React.Component {
+import { addSong } from './playlistAction'
+import SongPlayer from '../../../Components/SongPlayer/SongPlayer'
+import Playlist from '../Playlist/Playlist'
+
+//Youtube Data Browser API Key
+import { YT_API_KEY } from '../../../Config/youtubeAPIKey.js';
+
+export class PlaylistForm extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            searchTerm: '',
+            videos: [],
+            selectedVideo: null
+        };
+
+        this.videoSearch('dota2');
     }
 
-    handleSubmit = (event) => {
-        //Stop standard submit process
-        event.preventDefault();
+    videoSearch(term) {
+        YTSearch({ key: YT_API_KEY, term: term }, (videos) => {
+            this.setState({
+                videos: videos,
+                selectedVideo: videos[0]
+            });
+        });
+    }
 
-        //TODO youtube regex validator before adding it to the songInfo object
-        const songInfo = {
-            'link': event.target.song.value,
-						'id': this.props.roomName
-        }
-
-				// action creater call
-				this.props.addSong(songInfo);
-
-				// resets field to ''
-        event.target.reset();
-
+    onInputChange(searchTerm) {
+        this.setState({ searchTerm });
+        this.videoSearch(searchTerm);
     }
 
     render() {
         return (
             <div className="playlist-form-container">
-                <form className="dark-blue" onSubmit={this.handleSubmit}>
-                    <label>Add song here (YouTube link):</label>
-                    <input id="song" min="6" className="input-reset ba b--black-20 pa2 mb2 db w-100" type="text" />
-                    <input type="submit" id="submit" className="f6 link dim ph3 pv2 mb2 dib white bg-dark-blue" />
-                </form>
+                <h2>Search for the song you want to add to the room playlist here:</h2>
+                <div>
+                    <label>Search:</label>
+                    <input
+                        id="song"
+                        className="input-reset ba b--black-20 pa2 mb2 db w-100"
+                        value={this.state.searchTerm}
+                        onChange={event => this.onInputChange(event.target.value)}
+                    />
+                </div>
+                <div>
+                    <SongPlayer selectedVideo={this.state.selectedVideo} />
+                    <button>Add this song to room playlist</button>
+                </div>
+                <div>
+                    <p>Select a video to add</p>
+                    <Playlist
+                        videos={this.state.videos}
+                        onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
+                    />
+                </div>
             </div>
         )
     }
