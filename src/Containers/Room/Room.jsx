@@ -28,7 +28,7 @@ class Room extends Component {
 		return (
 			<div className="pa3 flex ">
 				<h1>Room Name: {this.props.match.params.roomid} </h1>
-				<h2 className="black" >Room Description: {this.props.activeRoom.desc}</h2>
+				{/*<h2 className="black" >Room Description: {this.state.activeRoom.desc}</h2>*/}
 				<div className="fl w-30 w-100-m pa2">
 					<SongPlayer selectedVideo={this.state.selectedVideo} />
 				</div>
