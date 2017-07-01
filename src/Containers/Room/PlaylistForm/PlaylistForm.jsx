@@ -71,14 +71,6 @@ export class PlaylistForm extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addSong: (songInfo) => {
-            dispatch(addSong(songInfo))
-        },
-    }
-}
-
 export default connect(
 	null,
 	{ addSong }
