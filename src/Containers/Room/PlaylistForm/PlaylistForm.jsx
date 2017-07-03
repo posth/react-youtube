@@ -18,8 +18,6 @@ export class PlaylistForm extends Component {
             videos: [],
             selectedVideo: null
         };
-
-        this.videoSearch('dota2');
     }
 
     videoSearch(term) {
@@ -38,13 +36,13 @@ export class PlaylistForm extends Component {
 
     render() {
         return (
-            <div className="playlist-form-container">
+            <div className="pa3 b--dotted">
                 <h2>Search for the song you want to add to the room playlist here:</h2>
                 <div>
                     <label>Search:</label>
                     <input
                         id="song"
-                        className="input-reset ba b--black-20 pa2 mb2 db w-100"
+                        className="input-reset ba b--black-20 pa2 mb2 db w-70"
                         value={this.state.searchTerm}
                         onChange={event => this.onInputChange(event.target.value)}
                     />

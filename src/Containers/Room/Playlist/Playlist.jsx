@@ -19,7 +19,7 @@ export class Playlist extends Component {
   render() {
     return (
       <div>
-        <ul>
+        <ul className="list">
           {this.props.videos ? this.songsListMap() : ''}
         </ul>
       </div>

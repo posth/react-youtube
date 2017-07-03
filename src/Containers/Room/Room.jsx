@@ -27,17 +27,18 @@ class Room extends Component {
 	render() {
 		return (
 			<div className="pa3 flex ">
-				<h1>Room Name: {this.props.match.params.roomid} </h1>
-				{/*<h2 className="black" >Room Description: {this.state.activeRoom.desc}</h2>*/}
-				<div className="fl w-30 w-100-m pa2">
-					<SongPlayer selectedVideo={this.state.selectedVideo} />
-				</div>
-				<div className="fl w-70 w-100-m pa2">
+				<section className="fl w-two-thirds">
+					<h1>Room Name: {this.props.match.params.roomid}</h1>
+					{/*<h2 className="black" >Room Description: {this.state.activeRoom.desc}</h2>*/}
+					<SongPlayer className="fl w-30 w-100-m pa2" selectedVideo={this.state.selectedVideo} />
+				</section>
+
+				<div className="fl w-third">
 					<Playlist
 						videos={this.state.videos}
 						roomName={this.props.match.params.roomid}
 					/>
-					<PlaylistForm className="pa2"/>
+					<PlaylistForm className="pa2" />
 				</div>
 			</div>
 		)
