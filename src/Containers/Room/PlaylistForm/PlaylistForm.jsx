@@ -34,6 +34,17 @@ export class PlaylistForm extends Component {
         this.videoSearch(searchTerm);
     }
 
+    addCurrentSong(selectedVideo) {
+
+        if (selectedVideo) {
+            let currentSongInfo = {
+                selectedVideo,
+                roomId: this.props.roomId
+            }
+            this.props.addSong(currentSongInfo);
+        }
+    }
+
     render() {
         return (
             <div className="pa3 b--dotted">
@@ -49,7 +60,7 @@ export class PlaylistForm extends Component {
                 </div>
                 <div>
                     <SongPlayer selectedVideo={this.state.selectedVideo} />
-                    <button>Add this song to room playlist</button>
+                    <button onClick={() => { this.addCurrentSong(this.state.selectedVideo) }}>Add this song to room playlist</button>
                 </div>
                 <div>
                     <p>Select a video to add</p>
