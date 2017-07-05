@@ -6,6 +6,12 @@ import { addSong } from './playlistAction'
 import SongPlayer from '../../../Components/SongPlayer/SongPlayer'
 import Playlist from '../Playlist/Playlist'
 
+import {
+	H2,
+	Body,
+	Input
+} from '../../../Components/Styled/Texts';
+
 //Youtube Data Browser API Key
 import { YT_API_KEY } from '../../../Config/youtubeAPIKey.js';
 
@@ -51,7 +57,7 @@ export class PlaylistForm extends Component {
                 <h2>Search for the song you want to add to the room playlist here:</h2>
                 <div>
                     <label>Search:</label>
-                    <input
+                    <Input
                         id="song"
                         className="input-reset ba b--black-20 pa2 mb2 db w-70"
                         value={this.state.searchTerm}
@@ -63,7 +69,7 @@ export class PlaylistForm extends Component {
                     <button onClick={() => { this.addCurrentSong(this.state.selectedVideo) }}>Add this song to room playlist</button>
                 </div>
                 <div>
-                    <p>Select a video to add</p>
+                    <Body>Select a video to add</Body>
                     <Playlist
                         videos={this.state.videos}
                         onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
@@ -74,15 +80,7 @@ export class PlaylistForm extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addSong: (songInfo) => {
-            dispatch(addSong(songInfo))
-        },
-    }
-}
-
 export default connect(
-    null,
-    mapDispatchToProps
+	null,
+	{ addSong }
 )(PlaylistForm)
