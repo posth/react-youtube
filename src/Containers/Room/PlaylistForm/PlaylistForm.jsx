@@ -7,9 +7,9 @@ import SongPlayer from '../../../Components/SongPlayer/SongPlayer'
 import Playlist from '../Playlist/Playlist'
 
 import {
-	H2,
-	Body,
-	Input
+    H2,
+    Body,
+    Input
 } from '../../../Components/Styled/Texts';
 
 //Youtube Data Browser API Key
@@ -54,7 +54,7 @@ export class PlaylistForm extends Component {
     render() {
         return (
             <div className="pa3 b--dotted">
-                <h2>Search for the song you want to add to the room playlist here:</h2>
+                <H2>Search for the song you want to add to the room playlist here:</H2>
                 <div>
                     <label>Search:</label>
                     <Input
@@ -81,6 +81,6 @@ export class PlaylistForm extends Component {
 }
 
 export default connect(
-	null,
-	{ addSong }
+    null,
+    { addSong }
 )(PlaylistForm)

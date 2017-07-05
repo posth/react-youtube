@@ -23,7 +23,7 @@ export const H3 = styled.h3`
 	color: ${darkGreen};
 `;
 
-export const body = styled.p`
+export const Body = styled.p`
 	font-size: 14px;
 	text-align: center;
 	color: ${darkGreen};
