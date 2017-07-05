@@ -1,4 +1,4 @@
-import {ATYPES} from './playlistAction'
+import {ATYPES} from './roomAction'
 
 export function getActiveReducer (state = {}, action) {
   switch (action.type) {

@@ -11,7 +11,7 @@ const SongPlayer = ({ selectedVideo }) => {
 
     return (
         <div className="fl w-100">
-            <iframe src={url}></iframe>
+            <iframe className="fl w-80 h5" src={url}></iframe>
         </div>
     );
 

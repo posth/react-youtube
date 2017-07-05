@@ -24,8 +24,6 @@ export class PlaylistForm extends Component {
             videos: [],
             selectedVideo: null
         };
-
-        this.videoSearch('dota2');
     }
 
     videoSearch(term) {
@@ -42,22 +40,33 @@ export class PlaylistForm extends Component {
         this.videoSearch(searchTerm);
     }
 
+    addCurrentSong(selectedVideo) {
+
+        if (selectedVideo) {
+            let currentSongInfo = {
+                selectedVideo,
+                roomId: this.props.roomId
+            }
+            this.props.addSong(currentSongInfo);
+        }
+    }
+
     render() {
         return (
-            <div className="playlist-form-container">
-                <H2>Search for the song you want to add to the room playlist here:</H2>
+            <div className="pa3 b--dotted">
+                <h2>Search for the song you want to add to the room playlist here:</h2>
                 <div>
                     <label>Search:</label>
                     <Input
                         id="song"
-                        className="input-reset ba b--black-20 pa2 mb2 db w-100"
+                        className="input-reset ba b--black-20 pa2 mb2 db w-70"
                         value={this.state.searchTerm}
                         onChange={event => this.onInputChange(event.target.value)}
                     />
                 </div>
                 <div>
                     <SongPlayer selectedVideo={this.state.selectedVideo} />
-                    <Button>Add this song to room playlist</Button>
+                    <button onClick={() => { this.addCurrentSong(this.state.selectedVideo) }}>Add this song to room playlist</button>
                 </div>
                 <div>
                     <Body>Select a video to add</Body>

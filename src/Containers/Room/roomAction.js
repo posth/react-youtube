@@ -1,4 +1,4 @@
-import database from '../../../Config/database'
+import database from '../../Config/database'
 
 /*
  * action types
@@ -32,7 +32,6 @@ export function getActiveRoom(id) {
   return function(dispatch) {
     dispatch(activeRoomRequested());
 		return database.ref('/public/' + id).on("value", function(snapshot) {
-  		console.log(snapshot.val());
 			dispatch(activeRoomSuccess(snapshot.val()));
 		})
 	}
