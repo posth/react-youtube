@@ -71,7 +71,10 @@ export function removeSong(currentSongInfo) {
 			let latestSongs = s.val() ? s.val() : [];
 			//small bug where the first element in the array is undefined x 1 (splicing for now as a quick fix)
 			//this bug is also present in the addSong
-			latestSongs.splice(0, 1);
+			if (latestSongs[0] == null) {
+				latestSongs.splice(0, 1);
+			}
+			console.log(latestSongs);
 			let findCurrentSong = (songObject) => {
 				return songObject.id.videoId === currentSongInfo.selectedVideo.id.videoId;
 			}
