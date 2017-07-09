@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { getActiveRoom } from './roomAction.js'
+import { removeSong } from './PlaylistForm/playlistAction.js'
 
 // Child Containers note: when using connect need to be called without brackets so it imports default
 import SongPlayer from '../../Components/SongPlayer/SongPlayer'
@@ -24,12 +25,23 @@ class Room extends Component {
 		this.props.getActiveRoom(this.props.match.params.roomid);
 	}
 
+	removeSong(selectedVideo) {
+		if (selectedVideo) {
+			let currentSongInfo = {
+				selectedVideo,
+				roomId: this.props.match.params.roomid
+			}
+			this.props.removeSong(currentSongInfo);
+		}
+	}
+
 	render() {
 		return (
 			<div className="pa3 flex ">
 				<section className="fl w-two-thirds">
 					<h1>Room Name: {this.props.activeRoom.name}</h1>
 					<h2 className="black" >Room Description: {this.props.activeRoom.desc}</h2>
+					<button onClick={() => { this.removeSong(this.state.selectedVideo) }}>Delete song</button>
 					<SongPlayer className="fl w-30 w-100-m pa2" selectedVideo={this.state.selectedVideo} />
 					<h2>Room Playlist</h2>
 					<Playlist
@@ -56,6 +68,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		getActiveRoom: (id) => {
 			dispatch(getActiveRoom(id))
+		},
+		removeSong: (selectedVideo) => {
+			dispatch(removeSong(selectedVideo))
 		}
 	}
 }
