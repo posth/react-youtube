@@ -10,16 +10,15 @@ export class CreateRoom extends React.Component {
 
 		handleSubmit = (event) => {
 			event.preventDefault();
+			const { target } = event;
 
-			const data = {
-				'name': event.target.name.value,
-				'desc': event.target.description.value
-			}
+			target.reset();
+			target.name.focus();
 
-			event.target.reset();
-			event.target.name.focus();
-
-			this.props.createRoom(data);
+			this.props.createRoom({
+				'name': target.name.value,
+				'desc': target.description.value
+			});
 		}
 
     render() {
@@ -42,21 +41,11 @@ export class CreateRoom extends React.Component {
     }
 }
 
-// const null = (state) => {
-//   return {
-//     createRoom: state.getPublic.createRoom
-//   }
-// }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    createRoom: (payload) => {
-      dispatch(createRoom(payload))
-    }
-  }
-}
-
 export default connect(
   null,
-  mapDispatchToProps
+	(dispatch) => ({
+		createRoom: (payload) => {
+			dispatch(createRoom(payload))
+		}
+	}),
 )(CreateRoom)
